@@ -61,7 +61,7 @@ img {
 	margin-right: 20px;
 }
 #header .logo a {
-	background: url(../images/latenights&coffee.png) no-repeat center top;
+	background: url() no-repeat center top;
 	display: block;
 	font: 15px/30px 'Play';
 	height: 20px;
@@ -102,7 +102,7 @@ img {
 	color: #f99600;
 }
 #adbox {
-	background: url(../images/latenights&coffee.jpg) repeat-x left top;
+	background: url() repeat-x left top;
 	height: 380px;
 	padding: 60px 0;
 }
@@ -373,7 +373,7 @@ p a {
 	margin-right: 30px;
 }
 #connect a {
-	background: url(../images/icons.png) no-repeat;
+	background: url() no-repeat;
 	display: inline-block;
 	height: 30px;
 	width: 30px;
