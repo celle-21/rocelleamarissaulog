@@ -79,6 +79,7 @@
 
 <div class="container">
     <h1>Coffee Preference Finder</h1>
+    <br>
     <center><p>Answer a few questions to find your perfect coffee!</p></center>
 
     <div class="question">
@@ -89,7 +90,7 @@
         </select>
     </div>
 
-    <center><div class="question"></center>
+    <div class="question">
         <label for="strength">Do you like your coffee strong or mild?</label><br>
         <select id="strength">
             <option value="strong">Strong</option>
@@ -97,7 +98,7 @@
         </select>
     </div>
 
-    <center><div class="question"></center>
+    <div class="question">
         <label for="temperature">Do you prefer your coffee hot or cold?</label><br>
         <select id="temperature">
             <option value="hot">Hot</option>
@@ -105,7 +106,7 @@
         </select>
     </div>
 
-    <center><button onclick="suggestCoffee()">Get Your Coffee Suggestion</button></center>
+    <button onclick="suggestCoffee()">Get Your Coffee Suggestion</button>
 
     <div id="suggestion" class="response"></div>
     <div id="exploreMore" class="response"></div>
