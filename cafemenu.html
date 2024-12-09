@@ -30,10 +30,46 @@
 	</div>
 	<div id="contents">
 		<div class="cafe menu">
-		<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-                <img src="images/cafe menu.png" alt="Centered Image">
+                <h2>Let's find the right your favorite coffee!</h2>
 		</div>
-			
+		
+def coffee_preference():
+    print("Welcome to the Coffee Preference Finder!")
+    print("Let's find out what kind of coffee you might like.")
+    
+    # Ask the user about their favorite coffee flavor
+    flavor = input("Do you prefer your coffee sweet or bitter? (sweet/bitter): ").lower()
+    
+    # Ask about the coffee strength
+    strength = input("Do you like your coffee strong or mild? (strong/mild): ").lower()
+    
+    # Ask about the temperature preference
+    temp = input("Do you prefer your coffee hot or cold? (hot/cold): ").lower()
+
+    # Suggest a coffee based on their preferences
+    if flavor == "sweet" and strength == "mild" and temp == "hot":
+        coffee_type = "A smooth Latte or Cappuccino would be perfect for you!"
+    elif flavor == "bitter" and strength == "strong" and temp == "hot":
+        coffee_type = "You might enjoy an Espresso or Americano."
+    elif flavor == "sweet" and strength == "strong" and temp == "cold":
+        coffee_type = "A sweet Iced Coffee or Iced Latte would suit your taste."
+    elif flavor == "bitter" and strength == "mild" and temp == "cold":
+        coffee_type = "How about an Iced Americano or Cold Brew?"
+    else:
+        coffee_type = "Your coffee preferences are unique! Try exploring different blends to discover your perfect match."
+    
+    print(f"\nBased on your preferences, {coffee_type}")
+    
+    # Option to exit or explore more
+    exit_program = input("\nWould you like to explore more coffee types? (yes/no): ").lower()
+    if exit_program == "yes":
+        coffee_preference()
+    else:
+        print("Thanks for exploring coffee with us! Have a great day!")
+
+# Run the function to start the interactive coffee preference quiz
+coffee_preference()
+
 		<div class="content">
 				<img src="images/recycle.png" alt="Img">
 				<h2>Customizable and Easy</h2>
