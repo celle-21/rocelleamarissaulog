@@ -30,45 +30,140 @@
 	</div>
 	<div id="contents">
 		<div class="cafe menu">
-                <h2>Let's find the right your favorite coffee!</h2>
+                <h2>Let's find the right your prefered coffee!</h2>
 		</div>
 		
-def coffee_preference():
-    print("Welcome to the Coffee Preference Finder!")
-    print("Let's find out what kind of coffee you might like.")
-    
-    # Ask the user about their favorite coffee flavor
-    flavor = input("Do you prefer your coffee sweet or bitter? (sweet/bitter): ").lower()
-    
-    # Ask about the coffee strength
-    strength = input("Do you like your coffee strong or mild? (strong/mild): ").lower()
-    
-    # Ask about the temperature preference
-    temp = input("Do you prefer your coffee hot or cold? (hot/cold): ").lower()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Preference Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .response {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #d1f7c4;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
 
-    # Suggest a coffee based on their preferences
-    if flavor == "sweet" and strength == "mild" and temp == "hot":
-        coffee_type = "A smooth Latte or Cappuccino would be perfect for you!"
-    elif flavor == "bitter" and strength == "strong" and temp == "hot":
-        coffee_type = "You might enjoy an Espresso or Americano."
-    elif flavor == "sweet" and strength == "strong" and temp == "cold":
-        coffee_type = "A sweet Iced Coffee or Iced Latte would suit your taste."
-    elif flavor == "bitter" and strength == "mild" and temp == "cold":
-        coffee_type = "How about an Iced Americano or Cold Brew?"
-    else:
-        coffee_type = "Your coffee preferences are unique! Try exploring different blends to discover your perfect match."
-    
-    print(f"\nBased on your preferences, {coffee_type}")
-    
-    # Option to exit or explore more
-    exit_program = input("\nWould you like to explore more coffee types? (yes/no): ").lower()
-    if exit_program == "yes":
-        coffee_preference()
-    else:
-        print("Thanks for exploring coffee with us! Have a great day!")
+<div class="container">
+    <h1>Coffee Preference Finder</h1>
+    <p>Answer a few questions to find your perfect coffee!</p>
 
-# Run the function to start the interactive coffee preference quiz
-coffee_preference()
+    <div class="question">
+        <label for="flavor">Do you prefer your coffee sweet or bitter?</label><br>
+        <select id="flavor">
+            <option value="sweet">Sweet</option>
+            <option value="bitter">Bitter</option>
+        </select>
+    </div>
+
+    <div class="question">
+        <label for="strength">Do you like your coffee strong or mild?</label><br>
+        <select id="strength">
+            <option value="strong">Strong</option>
+            <option value="mild">Mild</option>
+        </select>
+    </div>
+
+    <div class="question">
+        <label for="temperature">Do you prefer your coffee hot or cold?</label><br>
+        <select id="temperature">
+            <option value="hot">Hot</option>
+            <option value="cold">Cold</option>
+        </select>
+    </div>
+
+    <button onclick="suggestCoffee()">Get Your Coffee Suggestion</button>
+
+    <div id="suggestion" class="response"></div>
+    <div id="exploreMore" class="response"></div>
+</div>
+
+<script>
+    function suggestCoffee() {
+        // Get user selections
+        var flavor = document.getElementById("flavor").value;
+        var strength = document.getElementById("strength").value;
+        var temperature = document.getElementById("temperature").value;
+
+        // Determine coffee suggestion
+        var suggestion = "";
+
+        if (flavor === "sweet" && strength === "mild" && temperature === "hot") {
+            suggestion = "A smooth Latte or Cappuccino would be perfect for you!";
+        } else if (flavor === "bitter" && strength === "strong" && temperature === "hot") {
+            suggestion = "You might enjoy an Espresso or Americano.";
+        } else if (flavor === "sweet" && strength === "strong" && temperature === "cold") {
+            suggestion = "A sweet Iced Coffee or Iced Latte would suit your taste.";
+        } else if (flavor === "bitter" && strength === "mild" && temperature === "cold") {
+            suggestion = "How about an Iced Americano or Cold Brew?";
+        } else {
+            suggestion = "Your coffee preferences are unique! Try exploring different blends to discover your perfect match.";
+        }
+
+        // Display the coffee suggestion
+        document.getElementById("suggestion").innerText = suggestion;
+
+        // Ask if they want to explore more
+        document.getElementById("exploreMore").innerHTML = `
+            <p>Would you like to explore more coffee types?</p>
+            <button onclick="resetQuiz()">Yes</button>
+            <button onclick="exitQuiz()">No</button>
+        `;
+    }
+
+    // Reset the quiz
+    function resetQuiz() {
+        document.getElementById("flavor").value = "sweet";
+        document.getElementById("strength").value = "strong";
+        document.getElementById("temperature").value = "hot";
+        document.getElementById("suggestion").innerText = "";
+        document.getElementById("exploreMore").innerHTML = "";
+    }
+
+    // Exit the quiz
+    function exitQuiz() {
+        document.getElementById("suggestion").innerText = "Thanks for exploring coffee with us! Have a great day!";
+        document.getElementById("exploreMore").innerHTML = "";
+    }
+</script>
+
+</body>
+</html>
+
+       
 
 		<div class="content">
 				<img src="images/recycle.png" alt="Img">
